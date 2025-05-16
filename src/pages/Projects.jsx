@@ -1,68 +1,58 @@
-import React from "react";
 import authentication from "/public/advancedAuthenticationSystem.jpg";
 import book from "/public/bookStore.jpg";
-import dr from "/public/drTime.jpg";
-import netflix from "/public/netflixClone.jpg";
+import MovieStore from "/public/MovieStore.png";
 import personalPortfolio from "/public/personalPortfolio.jpg";
 
 import { motion } from "framer-motion";
 
 const projectData = [
   {
+    image: MovieStore,
+    title: "Movie Store",
+    github: "https://github.com/SatishYadav2003/movie-store.git",
+    description:
+      "Developed a movie store web application where users can browse and download movies based on quality. The site includes a download system with ad-based redirection, modal-based resolution selection, and secure download handling using dynamic headers. The frontend is responsive and user-friendly, and the backend uses Puppeteer for scraping and Express for handling secure downloads.",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Express",
+      "NodeJs",
+      "Puppeteer",
+      "Selenium",
+      "Python",
+      "Nodemailer",
+      "Firebase",
+    ],
+  },
+  {
     image: authentication,
     title: "Advanced Authentication System",
+    github:
+      "https://github.com/SatishYadav2003/Advanced_Authentication_System.git",
     description:
       "Built a Node.js, Express.js, and MongoDB application for secure user authentication and authorization, utilizing React for the frontend, JWT for secure token-based authentication, cookies for session management, CRUD operations for data handling, and Framer Motion for smooth animations.",
-    technologies: [
-      "HTMl",
-      "Tailwind",
-      "React.js",
-      "Node.js",
-      "Express.js",
-      "jwt",
-    ],
+    technologies: ["React", "Tailwind", "NodeJs", "ExpressJs", "JWT"],
   },
   {
     image: book,
     title: "Book Store",
+    github: "https://github.com/SatishYadav2003/BookStore.git",
     description:
       "Developed a Book Store application using React for the frontend, Tailwind CSS for styling, DaisyUI for components, Node.js and Express for the backend, and Vite for fast development setup. The app allows users to browse, add, and purchase books, providing a smooth and responsive user experience.",
     technologies: [
       "React",
       "Tailwind CSS",
       "DaisyUI",
-      "Node.js",
+      "NodeJS",
       "Express",
       "Vite",
-      "MongoDB",
-    ],
-  },
-  {
-    image: netflix,
-    title: "Netflix Clone",
-    description:
-      "Built a basic Netflix clone using HTML and CSS, replicating the UI design and basic features like movie listing and navigation for a static web application.",
-    technologies: ["HTML", "CSS"],
-  },
-  {
-    image: dr,
-    title: "Dr. Time",
-    description:
-      "Built a Doctor Scheduling application using React for the frontend, Tailwind CSS for styling, Flowbite for components, Node.js and Express for the backend, and Vite for fast development setup. JWT is used for secure user authentication, allowing patients to book appointments with doctors seamlessly.",
-    technologies: [
-      "React",
-      "Tailwind CSS",
-      "Flowbite",
-      "Node.js",
-      "Express",
-      "Vite",
-      "JWT",
       "MongoDB",
     ],
   },
   {
     image: personalPortfolio,
     title: "Personal Portfolio",
+    github: "https://github.com/SatishYadav2003/personal-portfolio.git",
     description:
       "Created a personal portfolio website to showcase my skills, projects, and experiences. The website includes smooth animations, a responsive design, and interactive elements to engage visitors. It features a sleek, modern interface with sections for my background, projects, and contact information.",
     technologies: [
@@ -70,10 +60,8 @@ const projectData = [
       "Framer Motion",
       "Tailwind CSS",
       "Vite",
-      "JWT",
-      "Node.js",
       "Express",
-      "MongoDB",
+      "EmailJs",
       "Render",
     ],
   },
@@ -90,7 +78,17 @@ const ProjectCard = ({ project }) => {
         />
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-3">
-            <div className="text-xl font-semibold">{project.title}</div>
+            <div className="flex items-center gap-4">
+              <div className="text-xl font-bold">{project.title}</div>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm  bg-white text-black px-3 py-1 rounded-lg hover:bg-gray-200 transition"
+              >
+                GitHub Link
+              </a>
+            </div>
 
             <p className="text-gray-400">{project.description}</p>
           </div>
