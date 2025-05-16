@@ -1,6 +1,7 @@
 import authentication from "/public/advancedAuthenticationSystem.jpg";
 import book from "/public/bookStore.jpg";
 import MovieStore from "/public/MovieStore.png";
+import Compiler from "/public/Compiler.png";
 import personalPortfolio from "/public/personalPortfolio.jpg";
 
 import { motion } from "framer-motion";
@@ -24,6 +25,15 @@ const projectData = [
       "Firebase",
     ],
   },
+  {
+    image: Compiler,
+    title: "Mini Compiler",
+    github: "https://github.com/SatishYadav2003/Mini-Compiler.git",
+    description:
+      "A simple yet powerful compiler that translates Satish language to C. Features lexical analysis with Flex, parsing with Bison, semantic analysis, Three-Address Code (TAC) generation, and C code output. Supports integer variables, arithmetic operations, input/output capabilities, and string handling. Perfect for learning compiler construction fundamentals.",
+    technologies: ["C Language", "Flex", "Bison"],
+  },
+
   {
     image: authentication,
     title: "Advanced Authentication System",
