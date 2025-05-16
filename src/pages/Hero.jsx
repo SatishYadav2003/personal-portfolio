@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import satish from "/public/satishyadav.jpg";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import { useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Hero() {
   const [isAnimationStart, setIsAnimationStart] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const handleAnimationTypewriter = () => {
     setTimeout(() => {
@@ -22,11 +23,20 @@ function Hero() {
         initial={{ y: -50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
+        className="relative"
       >
+        {!isImageLoaded && (
+          <div className="w-[300px] md:w-[350px] h-[300px] md:h-[350px] flex flex-col items-center justify-center gap-4 rounded-full bg-gray-800">
+            <ClipLoader size={50} color="#6366F1" />
+            <span className="text-white text-sm">Please wait...</span>
+          </div>
+        )}
         <img
           src={satish}
-          alt="logo"
-          className="w-[300px] cursor-pointer rounded-full shadow-lg shadow-indigo-500 transition-all duration-500 hover:-translate-y-2 hover:scale-105 hover:shadow-xl hover:shadow-indigo-600 md:w-[350px]"
+          alt="Satish Yadav"
+          onLoad={() => setIsImageLoaded(true)}
+          style={{ display: isImageLoaded ? "block" : "none" }}
+          className="w-[300px] md:w-[350px] cursor-pointer rounded-full shadow-lg shadow-indigo-500 transition-all duration-500 hover:-translate-y-2 hover:scale-105 hover:shadow-xl hover:shadow-indigo-600"
         />
       </motion.div>
 
@@ -35,10 +45,11 @@ function Hero() {
           initial={{ x: -150, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="bg-gradient-to-r from-pink-500  to-blue-500 text-transparent bg-clip-text text-4xl md:text-7xl font-light"
+          className="bg-gradient-to-r from-pink-500 to-blue-500 text-transparent bg-clip-text text-4xl md:text-7xl font-light"
         >
           Satish Yadav
         </motion.h1>
+
         <motion.h3
           initial={{ x: 150, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -68,6 +79,7 @@ function Hero() {
             )}
           </span>
         </motion.h3>
+
         <motion.p
           initial={{ y: 100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -76,9 +88,9 @@ function Hero() {
         >
           I am a web developer skilled in React.js, Next.js with experience in
           building clean, scalable applications. Proficient in integrating
-          databases like PostgreSQL, and MongoDB, I focus on delivering
-          efficient solutions for dynamic user experiences. Let's build
-          something great together!
+          databases like PostgreSQL and MongoDB, I focus on delivering efficient
+          solutions for dynamic user experiences. Let's build something great
+          together!
         </motion.p>
       </div>
     </div>
